@@ -17,13 +17,12 @@ pipeline {
                  make """             
             }
         }
-        stage('PC Lint') {
-            steps {
-                echo '..'
+        stage('PC Lint') {            
 		    steps {
+			     echo 'PC lint execution start..'
                     bat """
-                 cpplint --extensions=h,c --output=junit source\triangle.c source\triangle.h 2> pc-lint.xml  """             
-            }
+                 cpplint --extensions=h,c --output=junit source/triangle.c source/triangle.h 2> pc-lint.xml  """             
+            
             }
 		
         }
@@ -34,7 +33,7 @@ pipeline {
                  bat """
                    
                    echo "upload  build release to artifactory"
-                   curl -H "X-JFrog-Art-Api:AKCp8nyNzzK17UPuvoK8vBkqd1frktKWGSfP8ZdXF498YoeTvHk1o9FVTceiZGCPRavQfr3bX" -T main.exe "https://skilllync.jfrog.io/artifactory/nascom-generic-local/Releases/"               
+                   curl -H "X-JFrog-Art-Api:AKCp8nyNzzK17UPuvoK8vBkqd1frktKWGSfP8ZdXF498YoeTvHk1o9FVTceiZGCPRavQfr3bX" -T test_triangle.exe "https://skilllync.jfrog.io/artifactory/nascom-generic-local/Releases/"               
                     
                 """
             }
@@ -43,4 +42,3 @@ pipeline {
 
     }
 }
-
