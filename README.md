@@ -1,10 +1,10 @@
-# Nascom
-
-# After installing gcc compiler from https://sourceforge.net/projects/mingw/
-# If more clarification watch https://www.youtube.com/watch?v=JsO58opI3SQ
+# gcc compiler from https://sourceforge.net/projects/mingw/
 
 ## run the below code
-```bash
-gcc -o main.exe main.c
-main.exe 10
-```
+
+##generate build,package and unit test
+make
+
+##generate PC lint results
+cpplint --extensions=h,c --output=junit source\triangle.c source\triangle.h 2> pc-lint.xml
+
