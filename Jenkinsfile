@@ -38,7 +38,5 @@ pipeline {
                 """
             }
         }//upload full content to artifactory
-
-
     }
 }
